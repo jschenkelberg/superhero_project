@@ -17,11 +17,14 @@
                 <li><h2> {{superhero.name}}</h2>
                     <p><a href="{% url 'superheroes:detail' superhero.id %}">See Details</a>
                     <a href="{% url 'superheroes:edit' superhero.id %}">Edit</a>
-                        <a href="{% url 'superheroes:delete' superhero.id %}">DELETE</a></p>
+                    <a href="{% url 'superheroes:delete' superhero.id %}"><input type="submit" value="Delete"></a></p>
                 </li>
                 {% endfor %}
             </ul>
+            <p><a href="{% url 'superheroes:create_new_superhero' %}">Add Superhero to List</a> </p>
+            <p><a href="{% url 'superheroes:"</p>
             <div class="col-md-4"></div>
+        </div>
         </div>
     </div>
 </body>

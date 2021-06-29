@@ -10,5 +10,8 @@
 <p> Primary Ability: {{superhero_detail.primary_superhero_ability}} </p>
 <p> Secondary Ability: {{superhero_detail.secondary_superhero_ability}} </p>
 <p> Catchphrase: {{superhero_detail.catchphrase}}</p>
+<p><a href="{% url 'superheroes:create_new_superhero' %}">Add Superhero to List</a> </p><br>
+<p><a href="{% url 'superheroes:index' %}">Return to List</a> </p>
+<p></p>
 </body>
 </html>

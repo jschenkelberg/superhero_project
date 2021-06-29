@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 # Create your views here.
 from .models import Superhero
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
+from django.shortcuts import render, redirect, get_object_or_404
 
-# def index(request):
-#     return render(request, 'superheroes/index.html')
+
 
 def index(request):
     all_superheroes = Superhero.objects.all()
@@ -25,9 +25,23 @@ def detail(request, superhero_id):
 def edit(request, superhero_id):
     superhero_edit = Superhero.objects.get(pk=superhero_id)
     context = {
-        'superhero_edit': superhero_edit
+            'superhero_edit': superhero_edit
     }
-    return render(request, 'superheroes/edit.html', context)
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        alter_ego = request.POST.get('alter_ego')
+        primary_superhero_ability = request.POST.get('primary_superhero_ability')
+        secondary_superhero_ability = request.POST.get('secondary_superhero_ability')
+        catchphrase = request.POST.get('catchphrase')
+        superhero_edit = Superhero(name=name,
+                                  alter_ego=alter_ego,
+                                  primary_superhero_ability=primary_superhero_ability,
+                                  secondary_superhero_ability=secondary_superhero_ability,
+                                  catchphrase=catchphrase)
+        superhero_edit.save(superhero_id)
+        return HttpResponseRedirect(reverse('superheroes:index'))
+    else:
+        return render(request, "superheroes/edit.html", context)
 
 def create(request):
     if request.method == 'POST':
@@ -48,10 +62,10 @@ def create(request):
 
 def delete(request, superhero_id):
     superhero_delete = Superhero.objects.get(pk=superhero_id)
-    Superhero.delete(superhero_id)
+    Superhero.objects.filter(pk=superhero_id).delete()
     context = {
         'superhero_delete': superhero_delete
     }
-    return render(request, 'superheroes/index.html', context)
+    return render(request, 'superheroes/delete.html', context)
 
 
