@@ -5,13 +5,14 @@
     <title>Edit Superhero</title>
 </head>
 <body>
+<h1>Edit- "{{superhero_edit.name}}" </h1>
 <form action="{% url 'superheroes:edit' superhero_edit.id %}" method="post">
     {% csrf_token %}
-    Name:<input type="text" name="name" id="name"><br>
-    Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
-    Primary Super Power:<input type="text" name="primary_superhero_ability" id="primary_superhero_ability"><br>
-    Secondary Super Power:<input type="text" name="secondary_superhero_ability" id="secondary_superhero_ability"><br>
-    Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br>
+    Name:<input type="text" name="name" id="superhero_edit.name"><br>
+    Alter Ego:<input type="text" name="alter_ego" id="superhero_edit.alter_ego"><br>
+    Primary Super Power:<input type="text" name="primary_superhero_ability" id="superhero_edit.primary_superhero_ability"><br>
+    Secondary Super Power:<input type="text" name="secondary_superhero_ability" id="superhero_edit.secondary_superhero_ability"><br>
+    Catchphrase:<input type="text" name="catchphrase" id="superhero_edit.catchphrase"><br>
     <input type="submit" value="Edit Superhero">
 </form>
 </body>
