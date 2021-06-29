@@ -9,7 +9,9 @@
 <ul>
     {% for superhero in all_superheroes %}
     <li><h2> {{superhero.name}} </h2>
-        <a href="{% url 'superheroes:detail' superhero.id %}">see details</a></li>
+        <a href="{% url 'superheroes:detail' superhero.id %}">see details</a>
+        <a href="{%url 'superheroes:edit' superhero.id %}">edit</a>
+    </li>
 {% endfor %}
 </ul>
 </body>

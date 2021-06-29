@@ -16,12 +16,18 @@ def index(request):
     return render(request, 'superheroes/index.html', context)
 
 def detail(request, superhero_id):
-    superhero_detail = Superhero.objects.get()
+    superhero_detail = Superhero.objects.get(pk=superhero_id)
     context = {
         'superhero_detail': superhero_detail
     }
     return render(request, 'superheroes/detail.html', context)
-    pass
+
+def edit(request, superhero_id):
+    superhero_edit = Superhero.objects.get(pk=superhero_id)
+    context = {
+        'superhero_edit': superhero_edit
+    }
+    return render(request, 'superheroes/edit.html', context)
 
 def create(request):
     if request.method == 'POST':
