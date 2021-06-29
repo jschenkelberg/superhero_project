@@ -1,18 +1,28 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Superhero Index</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-<h1>List of Superheroes</h1>
-<ul>
-    {% for superhero in all_superheroes %}
-    <li><h2> {{superhero.name}} </h2>
-        <a href="{% url 'superheroes:detail' superhero.id %}">see details</a>
-        <a href="{%url 'superheroes:edit' superhero.id %}">edit</a>
-    </li>
-{% endfor %}
-</ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h1>List of Superheroes</h1>
+            <ul>
+                {% for superhero in all_superheroes %}
+                <li><h2> {{superhero.name}}</h2>
+                    <p><a href="{% url 'superheroes:detail' superhero.id %}">See Details</a>
+                    <a href="{% url 'superheroes:edit' superhero.id %}">Edit</a>
+                        <a href="{% url 'superheroes:delete' superhero.id %}">DELETE</a></p>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="col-md-4"></div>
+        </div>
+    </div>
 </body>
 </html>

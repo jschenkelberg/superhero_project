@@ -46,4 +46,12 @@ def create(request):
     else:
         return render(request, "superheroes/create.html")
 
+def delete(request, superhero_id):
+    superhero_delete = Superhero.objects.get(pk=superhero_id)
+    Superhero.delete(superhero_id)
+    context = {
+        'superhero_delete': superhero_delete
+    }
+    return render(request, 'superheroes/index.html', context)
+
 
