@@ -7,17 +7,26 @@
     <title>Edit Superhero</title>
 </head>
 <body>
-<div class="jumbotron">
-<h1>Edit - "{{superhero_edit.name}}" </h1>
-<form action="{% url 'superheroes:edit' superhero_edit.id %}" method="post">
-    {% csrf_token %}
-    Name:<input type="text" name="name" id="name"><br>
-    Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>
-    Primary Super Power:<input type="text" name="primary_superhero_ability" id="primary_superhero_ability"><br>
-    Secondary Super Power:<input type="text" name="secondary_superhero_ability" id="secondary_superhero_ability"><br>
-    Catchphrase:<input type="text" name="catchphrase" id="catchphrase"><br>
-    <input type="submit" value="Edit Superhero">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h1>Edit - "{{superhero_edit.name}}" </h1>
+            <form action="{% url 'superheroes:edit' superhero_edit.id %}" method="post">
+                {% csrf_token %}
+                Name:<br><input type="text" name="name" id="name"><br>
+                Alter Ego:<br><input type="text" name="alter_ego" id="alter_ego"><br>
+                Primary Super Power:<br><input type="text" name="primary_superhero_ability"
+                                               id="primary_superhero_ability"><br>
+                Secondary Super Power:<br><input type="text" name="secondary_superhero_ability"
+                                                 id="secondary_superhero_ability"><br>
+                Catchphrase:<br><input type="text" name="catchphrase" id="catchphrase"><br>
+                <br><input type="submit" value="Edit Superhero">
+                <br><p><a href="{% url 'superheroes:index' %}">Return to List</a></p>
+        </div>
+        </form>
     </div>
-</form>
+    <div class="col-md-4"></div>
+</div>
 </body>
 </html>

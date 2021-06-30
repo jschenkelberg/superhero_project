@@ -13,21 +13,27 @@
 <div class="jumbotron">
     <h1>Superhero Database</h1>
 </div>
-        <div class="col-md-6">
+     <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
             {% load static %}
             <img src="{% static 'batman.jpg' %}" class="img-fluid" alt="Tiny Batman with Dracula Teeth" class="center">
         </div>
-        <div class="col-md-6"></div>
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
+         <div class="col-md-4"></div>
+    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
                 <div class="text-center">
                     <h2><a href="{% url 'superheroes:create_new_superhero' %}">Add New Superhero to List</a></h2>
                     <ul>
                         {% for superhero in all_superheroes %}
                         <li><h1>{{superhero.name}}</h1>
-                            <p><a href="{% url 'superheroes:detail' superhero.id %}">See Details</a><br>
-                                <a href="{% url 'superheroes:edit' superhero.id %}">Edit This Superhero</a><br>
+                            <p><a href="{% url 'superheroes:detail' superhero.id %}"><input type="submit"
+                                                                                             value="See Superhero Details"></a><br>
+                                <a href="{% url 'superheroes:edit' superhero.id %}"><input type="submit"
+                                                                                             value="Edit This Superhero"></a><br>
                                 <a href="{% url 'superheroes:delete' superhero.id %}"><input type="submit"
                                                                                              value="Delete Superhero From List"></a>
                             </p><br>

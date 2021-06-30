@@ -2,11 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <title>Entry Deleted!</title>
 </head>
 <body>
-<h1>Entry Deleted</h1>
-<p><a href="{% url 'superheroes:create_new_superhero' %}">Add Superhero to List</a> </p><br>
-<p><a href="{% url 'superheroes:index' %}">Return to List</a> </p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <h1>Entry Deleted</h1>
+            <p><a href="{% url 'superheroes:create_new_superhero' %}">Add Superhero to List</a></p><br>
+            <p><a href="{% url 'superheroes:index' %}">Return to List</a></p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 </body>
 </html>
