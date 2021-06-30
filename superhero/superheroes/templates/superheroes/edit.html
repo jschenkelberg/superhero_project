@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <title>Edit Superhero</title>
 </head>
 <body>
+<div class="left-align"
 <h1>Edit- "{{superhero_edit.name}}" </h1>
 <form action="{% url 'superheroes:edit' superhero_edit.id %}" method="post">
     {% csrf_token %}
@@ -14,6 +17,7 @@
     Secondary Super Power:<input type="text" name="secondary_superhero_ability" id="superhero_edit.secondary_superhero_ability"><br>
     Catchphrase:<input type="text" name="catchphrase" id="superhero_edit.catchphrase"><br>
     <input type="submit" value="Edit Superhero">
+    </div>
 </form>
 </body>
 </html>
